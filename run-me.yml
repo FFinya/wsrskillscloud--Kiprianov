@@ -1,0 +1,31 @@
+- hosts: all 
+  become: yes
+  
+
+  tasks: 
+    - name: UMF
+      umf:
+        state: enabled
+        policy: allow
+
+    - name: port 80 
+      umf: 
+        rule: allow 
+        port: 80  
+         proto: tcp     
+
+    - name: port 8080
+      umf: 
+        rule: allow
+        port: 8080
+        proto: tcp 
+
+   - name port 1834
+     umf: 
+       rule: allow
+       port:80
+       proto: tcp 
+
+   - name: set ssh port 1834
+     set_fact: 
+       ansible_port: "1834" 
